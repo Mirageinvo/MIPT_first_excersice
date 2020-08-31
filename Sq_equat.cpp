@@ -5,12 +5,12 @@
 
 #define Eps 1e-6
 
-enum types_equations { Infinite = -1,
+enum Types_equations { Infinite = -1,
                        No_answer,
                        Linear,
                        Regular };
 
-enum types_discriminant { No_roots,
+enum Types_discriminant { No_roots,
                           One_root,
                           Two_roots };
 
@@ -18,7 +18,7 @@ int equat_solver(double a, double b, double c, double& x1, double& x2);
 int check_of_coeff_in_quadr_equat(double a, double b, double c);
 int quadratic_solver(double a, double b, double c, double& x1, double& x2);
 double linear_solver(double b, double c);
-void write_ans(int num_of_roots, double x1, double x2);
+void write_ans_quadr_equat(int num_of_roots, double x1, double x2);
 
 int main() {
     double a = 0, b = 0, c = 0, x1 = 0, x2 = 0;
@@ -27,7 +27,7 @@ int main() {
     printf("\n");
     int num_of_roots = equat_solver(a, b, c, x1, x2);
     //now main "knows" number of roots
-    write_ans(num_of_roots, x1, x2);
+    write_ans_quadr_equat(num_of_roots, x1, x2);
     return 0;
 }
 
@@ -78,7 +78,7 @@ int equat_solver(double a, double b, double c, double& x1, double& x2) {
     }
 }
 
-void write_ans(int num_of_roots, double x1, double x2) {
+void write_ans_quadr_equat(int num_of_roots, double x1, double x2) {
     switch (num_of_roots) {
     case Infinite:
         printf("Infinite number of roots\n");
